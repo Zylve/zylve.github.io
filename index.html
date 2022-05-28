@@ -2,84 +2,40 @@
 <html>
     <head>
         <meta charset="utf-8">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Zylve</title>
 
         <style>
-
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6,
-            p,
-            ol,
-            ul,
-            a
-            {
-                color: black;
+            .box {
+                background-color: aqua;
+                height: 200px;
+                width: 200px;
             }
-            body
-            {
-                background-image: url("plato and socrates.jpg");
-            }
-            img
-            {
-                margin: 10px 0 0 4px;
-                box-shadow: 0 0 0 10px #000;
-            }
-            #Different-Colour
-            {
-                color: blue;
-            }
-            #main-text
-            {
-                background-color: rgb(0, 0, 0);
-            }
-
         </style>
-
     </head>
-    <body id="main-text">
-        <img src="plato and socrates.jpg" alt="Plato and Scorates have a deep and thoughtful discussion concerning furry rights." Width="600" height="300">
 
-        <h1>Hello World</h1>
-        <h2>This is a smaller heading</h2>
-        <h3>And this one is even smaller</h3>
-        <h4>Kinda neat eh?</h4>
-        <h5>Still Reading?</h5>
-        <h6>This is the smallest heading</h6>
+    <body>
+        <div id="app">
+            {{ greeting }}
+            <input v-model="greeting"/>
+            <hr />
+            <button v-on:click="isVisible = !isVisible">Click to toggle box</button>
+            <div v-show="isVisible" class="box"></div>
+        </div>
 
-        <a target="_self" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Click here to see my second page</a>
 
-        <h2>Paragraph Test</h2>
-        <p>The FitnessGram Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues.<br>
-            The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly but gets faster each minute after you hear the signal beep.<br>
-            A single lap should be completed every time you hear this sound. <em>"ding!"</em><br>
-            Remember to run in a straight line and run as long as possible.<br>
-            The second time you fail to complete a lap before the sound, your test is over.<br>
-            The test will begin on the word start. <strong>your mark. Get ready!… <em>Start!</em></strong>
-        </p>
-
-        <h1 id="Different-Colour">Wait this is a different colour!</h1>
-
-        <ol>
-            <li>What</li>
-            <li>oh</li>
-            <li>this</li>
-            <li>is</li>
-            <li>a</li>
-            <li>numbered</li>
-            <li>list</li>
-        </ol>
-        <ul>
-            <li>And</li>
-            <li>this</li>
-            <li>is</li>
-            <li>an</li>
-            <li>unordered</li>
-            <li>list</li>
-        </ul>
+        <script src="https://unpkg.com/vue@3"></script>
+        <script>
+            const { createApp } = Vue
+            let app = Vue.createApp({
+                data: function() {
+                    return {
+                        greeting: 'Hello World!',
+                        isVisible: false
+                    }
+                }
+            })
+            app.mount('#app');
+        </script>
     </body>
 </html>
